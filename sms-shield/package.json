@@ -1,0 +1,21 @@
+{
+  "name": "sms-shield",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SMS Shield: accessible medical guidance and healthcare rights for disabled users. Express server that serves public/ and proxies OpenAI, ElevenLabs and AWS calls.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.134.0",
+    "@aws-sdk/client-rekognition": "^3.1161.0",
+    "@google/genai": "^2.30.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "groq-sdk": "^1.6.0",
+    "openai": "^7.47.0"
+  }
+}

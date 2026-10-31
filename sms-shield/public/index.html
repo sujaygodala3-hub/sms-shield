@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SMS Shield | Health help and your rights</title>
+  <meta name="description" content="SMS Shield helps disabled people get medical guidance and know their healthcare rights at every step, by voice, text or face control.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Announcement bar -->
+<div class="announce" id="announce">
+  <p>Hackathon prototype <span class="badge-m" aria-hidden="true">S</span> Not medical or legal advice</p>
+  <button class="announce-x" aria-label="Dismiss" onclick="document.getElementById('announce').remove()">&times;</button>
+</div>
+
+<!-- Header -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#home" class="brand" aria-label="SMS Shield home"><img class="brand-logo" src="assets/logo.png" alt="" width="482" height="287"></a>
+    <nav class="main-nav" id="mainNav" aria-label="Tools">
+      <a href="#photo" data-nav="photo">Photo Check</a>
+      <a href="#symptoms" data-nav="symptoms">Symptoms</a>
+      <a href="#bill" data-nav="bill">Bill Check</a>
+      <a href="#cost" data-nav="cost">Costs</a>
+      <a href="#meds" data-nav="meds">Medications</a>
+      <a href="#legal" data-nav="legal">Rights &amp; Letters</a>
+    </nav>
+    <div class="location" title="Your location sets prices across the site">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      <select id="stateSelect" aria-label="State"></select>
+      <input id="zipInput" inputmode="numeric" maxlength="5" placeholder="ZIP" aria-label="ZIP code">
+    </div>
+    <button class="a11y-btn" id="a11yBtn" type="button" aria-haspopup="dialog">Accessibility</button>
+    <a class="btn btn-red header-cta" href="#photo">Photo check</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ============================ HOME ============================ -->
+<section class="page" data-page="home" aria-labelledby="homeTitle">
+  <section class="hero2" aria-labelledby="homeTitle">
+    <div class="hero2-bg" aria-hidden="true"></div>
+    <span class="sparkle sp1" aria-hidden="true"></span><span class="sparkle sp2" aria-hidden="true"></span><span class="sparkle sp3" aria-hidden="true"></span>
+    <div class="hero2-grid">
+      <div class="hero2-copy">
+        <a class="hero-chip up" href="#disability"><i aria-hidden="true"></i>Free · made for disabled patients</a>
+        <h1 id="homeTitle" class="up" style="--d:.08s">Health help that<br><span class="grad">knows your <em>rights.</em></span></h1>
+        <p class="hero2-lead up" style="--d:.16s">Show us what is wrong. SMS Shield tells you what it could be, what it could cost, and what the law says you can ask for, by voice, text or face.</p>
+        <p class="rights-line up" style="--d:.2s"><span class="rights-dot" aria-hidden="true"></span><span>You have <mark class="hl">rights in healthcare</mark>. We will show you as we go.</span></p>
+        <div class="hero2-ctas up" style="--d:.24s">
+          <a class="btn btn-red" href="#photo">Start a photo check <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#how">How it works</a>
+          <a class="btn btn-pink" href="#modes">Choose my mode</a>
+        </div>
+        <dl class="hero2-stats up" style="--d:.32s">
+          <div><dt>Ways to use it</dt><dd><span class="count" data-to="4">4</span></dd></div>
+          <div><dt>Rights explained</dt><dd><span class="count" data-to="20">20</span></dd></div>
+          <div><dt>Letters ready</dt><dd><span class="count" data-to="6">6</span></dd></div>
+          <div><dt>Cost to you</dt><dd>$0</dd></div>
+        </dl>
+      </div>
+      <figure class="hv-wrap up" style="--d:.2s" aria-label="Illustration: a gavel in a lens while your rights are checked"
+        data-lens='[["Interpreter","Free at your visit"],["Surprise bill","In-network price only"],["Charity care","You may qualify"]]'
+        data-scale="3 rights" data-caption="Illustration of a rights check"></figure>
+    </div>
+  </section>
+
+  <section class="band" id="modes" aria-labelledby="modeTitle">
+    <div class="wrap">
+      <p class="eyebrow accent">01 · Your way</p>
+      <h2 class="mode-heading" id="modeTitle" tabindex="-1">Choose how you want to use SMS Shield</h2>
+      <p class="sub" id="modeHelp">Press 1, 2, 3 or 4, or say the name of a mode. You can change it later with the Accessibility button.</p>
+      <div class="mode-cards" role="group" aria-labelledby="modeTitle" aria-describedby="modeHelp">
+        <button class="mode-card reveal" type="button" data-mode="voice" aria-pressed="false">
+          <span class="mode-num" aria-hidden="true">1</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z M16 9a4 4 0 0 1 0 6 M18.5 6.5a8 8 0 0 1 0 11"/></svg>
+          <b>Voice mode</b><span>For blind or low vision users. I talk you through every step.</span>
+        </button>
+        <button class="mode-card reveal" style="--i:1" type="button" data-mode="text" aria-pressed="false">
+          <span class="mode-num" aria-hidden="true">2</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 10h4M7 14h10M14 10h3"/></svg>
+          <b>Text mode</b><span>For deaf or hard of hearing users. Everything shows as text and captions.</span>
+        </button>
+        <button class="mode-card reveal" style="--i:2" type="button" data-mode="handsfree" aria-pressed="false">
+          <span class="mode-num" aria-hidden="true">3</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="11" r="7"/><circle cx="9.5" cy="10" r=".6"/><circle cx="14.5" cy="10" r=".6"/><path d="M9.5 14c1.4 1.2 3.6 1.2 5 0M4 20l2-2M20 20l-2-2"/></svg>
+          <b>Hands-free mode</b><span>For limited hand movement. Move and choose with your face and camera.</span>
+        </button>
+        <button class="mode-card mode-card-wide reveal" style="--i:3" type="button" data-mode="full" aria-pressed="false">
+          <span class="mode-num" aria-hidden="true">4</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg>
+          <b>Full access</b><span>Not sure, or more than one? Everything is read out loud and shown as captions. You never need to speak.</span>
+        </button>
+      </div>
+      <button class="link-btn" type="button" data-mode="standard">Or use standard mode with a mouse, touch or keyboard</button>
+    </div>
+  </section>
+
+  <section class="lit" aria-labelledby="litTitle">
+    <div class="wrap">
+      <p class="eyebrow accent">The problem</p>
+      <h2 id="litTitle" class="lit-text">Doctors talk fast. Bills come late. The rules that protect you hide in fine print. SMS Shield puts <em>your rights</em> next to every step.</h2>
+    </div>
+  </section>
+
+  <section class="band" id="why" aria-labelledby="whyTitle">
+    <div class="wrap">
+      <p class="eyebrow accent">Why it matters</p>
+      <h2 id="whyTitle">Your rights are real. Most people never hear about them.</h2>
+      <div class="why-grid">
+        <article class="why-card reveal"><p class="why-num">1 in 4</p><p class="why-unit">US adults</p><p>have a disability.</p><p class="why-src">CDC, up to 1 in 4</p></article>
+        <article class="why-card reveal" style="--i:1"><p class="why-num">$0</p><p class="why-unit">for an interpreter</p><p>Providers can't charge you for access help.</p><p class="why-src">28 CFR 36.301(c)</p></article>
+        <article class="why-card reveal" style="--i:2"><p class="why-num">180</p><p class="why-unit">days</p><p>to appeal a denied insurance claim.</p><p class="why-src">45 CFR 147.136</p></article>
+        <article class="why-card why-red reveal" style="--i:3"><p class="why-num">240</p><p class="why-unit">days</p><p>to apply for charity care at a nonprofit hospital.</p><a class="why-link" href="#legal">See your rights →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band dz-band" id="disability" aria-labelledby="dzTitle">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow accent">02 · Help for your disability</p><h2 id="dzTitle">Pick what fits you</h2>
+        <p class="sub">See how SMS Shield helps, what you can ask for at a visit, and the laws that back you up.</p></div>
+      <div id="dzTabs"></div>
+    </div>
+  </section>
+
+  <section class="band cream" id="prepare" aria-label="Settings and visit checklist">
+    <div class="wrap two-up">
+      <div class="home-card stagger">
+        <p class="eyebrow accent">03 · Make it easier to use</p>
+        <h2>Display settings</h2>
+        <div class="toggle-list">
+          <label class="toggle"><input type="checkbox" id="homeContrast"><span class="toggle-ui" aria-hidden="true"></span><span><b>High contrast</b> Stronger colors and borders</span></label>
+          <label class="toggle"><input type="checkbox" id="homeLarge"><span class="toggle-ui" aria-hidden="true"></span><span><b>Larger text</b> Everything a bit bigger</span></label>
+          <label class="toggle"><input type="checkbox" id="homeMotion"><span class="toggle-ui" aria-hidden="true"></span><span><b>Calm mode</b> Turns off motion and movement</span></label>
+        </div>
+        <p class="sub">Change your mode any time with the Accessibility button at the top.</p>
+      </div>
+      <div class="home-card stagger">
+        <p class="eyebrow accent">04 · Before any visit</p>
+        <h2>Your visit checklist</h2>
+        <div class="check-progress"><span id="checklistCount">0 of 6 done</span><span class="check-bar"><i id="checklistBar"></i></span></div>
+        <ul class="visit-list" id="visitChecklist"></ul>
+        <button class="btn btn-primary" type="button" data-letter-go>Make an accommodation letter</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="numbers-band" aria-labelledby="numbersTitle">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow accent">05 · Numbers to know</p><h2 id="numbersTitle">Help is a call or text away</h2>
+        <p class="sub">Every state also has a free Protection and Advocacy agency that gives legal help to people with disabilities.</p></div>
+      <ul class="numbers" id="numbers"></ul>
+    </div>
+  </section>
+
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>ADA Title II</span><span>ADA Title III</span><span>Section 504</span><span>Section 1557</span><span>Free interpreters</span><span>Accessible formats</span><span>Service animals</span><span>No Surprises Act</span><span>501(r) charity care</span><span>EMTALA</span><span>Medicaid fair hearings</span><span>Insurance appeals</span>
+      <span>ADA Title II</span><span>ADA Title III</span><span>Section 504</span><span>Section 1557</span><span>Free interpreters</span><span>Accessible formats</span><span>Service animals</span><span>No Surprises Act</span><span>501(r) charity care</span><span>EMTALA</span><span>Medicaid fair hearings</span><span>Insurance appeals</span>
+    </div>
+  </div>
+
+  <section class="band cream tour" id="how" aria-labelledby="howTitle">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow accent">06 · How it works</p><h2 id="howTitle">From photo to your rights, step by step</h2>
+        <p class="sub">Scroll to walk through a check. The rights layer runs at every step.</p></div>
+      <div class="tour-grid">
+        <ol class="tour-steps" id="tourSteps">
+          <li class="tour-step is-active" data-step="0"><span class="tour-node" aria-hidden="true">1</span><p class="tour-name">Photo</p><h3>Show us the problem area</h3><p>Point your camera, upload a photo, or describe it in words.</p></li>
+          <li class="tour-step" data-step="1"><span class="tour-node" aria-hidden="true">2</span><p class="tour-name">Countdown</p><h3>3, 2, 1, shown and spoken</h3><p>A big number counts down so you know when the photo is taken.</p></li>
+          <li class="tour-step" data-step="2"><span class="tour-node" aria-hidden="true">3</span><p class="tour-name">Possible conditions</p><h3>What it could be, and how soon</h3><p>Careful words, an urgency level, and when to get urgent care.</p></li>
+          <li class="tour-step" data-step="3"><span class="tour-node" aria-hidden="true">4</span><p class="tour-name">Rights check</p><h3>What it could cost and what protects you</h3><p>Financial help, surprise bill protection, and the accommodations you can ask for.</p></li>
+          <li class="tour-step" data-step="4"><span class="tour-node" aria-hidden="true">5</span><p class="tour-name">Next steps</p><h3>Options with your legal angle</h3><p>A doctor, home care, or an affordable clinic, each with what to ask for.</p></li>
+          <li class="tour-step" data-step="5"><span class="tour-node" aria-hidden="true">6</span><p class="tour-name">Letter</p><h3>A letter, ready to send</h3><p>One click fills in an accommodation request, billing dispute, or appeal.</p></li>
+        </ol>
+        <div class="tour-visual" aria-hidden="true">
+          <div class="tour-sticky">
+            <div class="tour-tabs" role="presentation"><span class="on" data-tab="voice">Voice</span><span data-tab="text">Text</span><span data-tab="handsfree">Hands-free</span></div>
+            <div class="tour-card" id="tourCard"></div>
+            <div class="tour-foot"><span class="tour-count" id="tourCount">01 / 06</span><span class="tour-rail" id="tourRail"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+          </div>
+        </div>
+      </div>
+      <a class="btn btn-primary btn-lg" href="#photo">Start a photo check</a>
+    </div>
+  </section>
+
+  <section class="band cream" id="faq" aria-labelledby="faqTitle">
+    <div class="wrap narrow">
+      <div class="section-head"><p class="eyebrow accent">08 · Questions</p><h2 id="faqTitle">Questions people ask</h2></div>
+      <div class="faq">
+        <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq1">Is SMS Shield free?<span class="faq-icon" aria-hidden="true"></span></button><div class="faq-a" id="faq1"><div><p>Yes. It runs on free services, and you never need an account.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq2">Do you keep my photo or my details?<span class="faq-icon" aria-hidden="true"></span></button><div class="faq-a" id="faq2"><div><p>No. Photos and voice recordings are checked once and thrown away. Letter details stay on your screen and are gone when you leave.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq3">What if I can't see, hear, or speak?<span class="faq-icon" aria-hidden="true"></span></button><div class="faq-a" id="faq3"><div><p>Turn on Full access. Everything is read out loud and shown as captions, and you can do it all with a keyboard. You never need to speak.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq4">Is this legal or medical advice?<span class="faq-icon" aria-hidden="true"></span></button><div class="faq-a" id="faq4"><div><p>No. It is general information to help you ask the right questions. In an emergency, call 911. For legal help, your state's Protection and Advocacy agency is free.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false" aria-controls="faq5">How do the letters work?<span class="faq-icon" aria-hidden="true"></span></button><div class="faq-a" id="faq5"><div><p>Pick a letter, add your name and the clinic, and it fills itself in with the law that backs you up. Copy it, download it, or have it read to you.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="tools" aria-labelledby="toolsTitle">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow accent">09 · Tools</p><h2 id="toolsTitle">Start where you are</h2></div>
+      <div class="tool-cards">
+        <a class="tool-card reveal" href="#photo"><span class="tool-num">01 · Photo</span><h3>Photo check</h3><p>Take a photo of the problem area. See what it could be and what protects you.</p></a>
+        <a class="tool-card reveal" style="--i:1" href="#symptoms"><span class="tool-num">02 · Symptoms</span><h3>Describe how you feel</h3><p>Type or say your symptoms instead of a photo.</p></a>
+        <a class="tool-card reveal" style="--i:2" href="#bill"><span class="tool-num">03 · Bills</span><h3>Check a medical bill</h3><p>Find surprise charges, financial help, and fees for access help.</p></a>
+        <a class="tool-card reveal" href="#cost"><span class="tool-num">04 · Costs</span><h3>See what care costs</h3><p>Treating early versus waiting, priced where you live.</p></a>
+        <a class="tool-card reveal" style="--i:1" href="#meds"><span class="tool-num">05 · Medications</span><h3>Compare medication prices</h3><p>Generic and brand prices side by side.</p></a>
+        <a class="tool-card reveal" style="--i:2" href="#legal"><span class="tool-num">06 · Rights</span><h3>Rights and letters</h3><p>The laws that protect you and letters ready to send.</p></a>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================ PHOTO CHECK ============================ -->
+<section class="page" data-page="photo" hidden aria-labelledby="photoTitle">
+  <div class="page-head">
+    <div class="wrap narrow">
+      <p class="eyebrow accent">Step 1 of 3 · Photo check</p>
+      <h1 id="photoTitle">Show us the problem area</h1>
+      <p class="lead">Hold your camera on the area. We count 3, 2, 1, then take the photo. Your photo is never saved.</p>
+    </div>
+  </div>
+  <div class="band cream tight">
+    <div class="wrap narrow">
+      <div class="camera-box" id="cameraBox">
+        <video id="camVideo" playsinline muted aria-label="Camera preview" hidden></video>
+        <img id="camShot" alt="The photo you took" hidden>
+        <p class="cam-msg" id="camMsg">Your camera is off. Press Start camera, or upload a photo.</p>
+        <div class="countdown" id="countdown" aria-hidden="true"></div>
+      </div>
+      <div class="photo-actions">
+        <button class="btn btn-primary btn-lg" id="photoMain" type="button">Start camera</button>
+        <label class="btn btn-secondary btn-lg file-btn">Upload a photo<input type="file" accept="image/*" id="photoFile" class="sr-only"></label>
+      </div>
+      <label class="note-label" for="photoNote">Anything to add? (optional)</label>
+      <input class="note-input" id="photoNote" placeholder="For example: it itches and started 3 days ago" autocomplete="off">
+      <details class="describe" id="describeBox">
+        <summary>No camera? Describe it in words instead</summary>
+        <form id="describeForm">
+          <label for="describeText">What is going on?</label>
+          <textarea id="describeText" rows="3" placeholder="For example: red, warm, swollen patch on my leg"></textarea>
+          <button class="btn btn-primary" type="submit">Check it</button>
+        </form>
+      </details>
+      <div id="photoResults" class="flow-results"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ NEXT STEPS ============================ -->
+<section class="page" data-page="next" hidden aria-labelledby="nextTitle">
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow accent">Step 2 of 3 · Next steps</p>
+      <h1 id="nextTitle">Your options, and your rights at each one</h1>
+      <p class="lead">Pick what fits you. Each option shows what to ask for and a letter you can send.</p>
+    </div>
+  </div>
+  <div class="band cream tight">
+    <div class="wrap">
+      <div id="nextOptions"></div>
+      <section class="letter-panel" id="letterPanel" aria-labelledby="letterTitle" hidden>
+        <div class="letter-grid">
+          <div>
+            <p class="eyebrow accent">Your letter</p>
+            <h2 id="letterTitle" tabindex="-1">Ready to send</h2>
+            <p class="sub">Add your details once. The letter updates as you type. Nothing is saved.</p>
+            <form class="panel form" id="flowLetterForm">
+              <label>Type of letter
+                <select name="kind" id="flowLetterKind"></select>
+              </label>
+              <div class="two">
+                <label>Your full name<input name="name" autocomplete="name"></label>
+                <label>Clinic, hospital or plan<input name="provider"></label>
+              </div>
+              <label>Your mailing address<input name="address" autocomplete="street-address"></label>
+              <div class="two">
+                <label>Visit or service date<input name="date" type="date"></label>
+                <label>Account or claim number<input name="account"></label>
+              </div>
+            </form>
+          </div>
+          <div class="letter-wrap">
+            <div class="letter-toolbar">
+              <span class="eyebrow">Preview</span>
+              <div class="btn-row">
+                <button class="btn btn-secondary sm" id="flowLetterRead" type="button">Read aloud</button>
+                <button class="btn btn-secondary sm" id="flowLetterCopy" type="button">Copy</button>
+                <button class="btn btn-primary sm" id="flowLetterDownload" type="button">Download</button>
+              </div>
+            </div>
+            <textarea class="letter" id="flowLetterOutput" spellcheck="false" aria-label="Your letter"></textarea>
+            <p class="legal-note">General information, not legal advice.</p>
+          </div>
+        </div>
+      </section>
+      <a class="btn btn-primary btn-lg" href="#summary" id="toSummary">See my summary</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SUMMARY ============================ -->
+<section class="page" data-page="summary" hidden aria-labelledby="summaryTitle">
+  <div class="page-head">
+    <div class="wrap narrow">
+      <p class="eyebrow accent">Step 3 of 3 · Summary</p>
+      <h1 id="summaryTitle">Your summary</h1>
+      <p class="lead">Read it aloud, download it, or print it to bring to your visit.</p>
+      <div class="btn-row no-print">
+        <button class="btn btn-primary btn-lg" id="summaryRead" type="button">Read it aloud</button>
+        <button class="btn btn-secondary btn-lg" id="summaryDownload" type="button">Download</button>
+        <button class="btn btn-secondary btn-lg" id="summaryPrint" type="button">Print</button>
+      </div>
+    </div>
+  </div>
+  <div class="band cream tight">
+    <div class="wrap narrow" id="summaryBody"></div>
+  </div>
+</section>
+
+<!-- ============================ BILL CHECK ============================ -->
+<section class="page" data-page="bill" hidden>
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow accent">Bill Check</p>
+      <h1>Is this bill even legal?</h1>
+      <p class="lead">Answer a few questions about the bill. We check it against the No Surprises Act, nonprofit charity-care rules and your appeal rights.</p>
+    </div>
+  </div>
+  <div class="band cream tight">
+    <div class="wrap tool-grid">
+      <form class="panel form" id="billForm" novalidate>
+        <h3>About the bill</h3>
+        <label>Where did you get care?
+          <select name="setting">
+            <option value="er">Emergency room</option>
+            <option value="scheduled">Scheduled visit or surgery at a hospital or surgery center</option>
+            <option value="office">Doctor's office or clinic</option>
+            <option value="air">Air ambulance</option>
+            <option value="ground">Ground ambulance</option>
+          </select>
+        </label>
+        <div class="two">
+          <label>Your insurance
+            <select name="insurance">
+              <option value="private">Private / employer / marketplace</option>
+              <option value="uninsured">Uninsured or paying cash</option>
+              <option value="medicare">Medicare or Medicaid</option>
+            </select>
+          </label>
+          <label>Hospital type
+            <select name="hospital">
+              <option value="nonprofit">Nonprofit</option>
+              <option value="forprofit">For-profit</option>
+              <option value="public">Public / government</option>
+              <option value="unknown">Not sure</option>
+            </select>
+          </label>
+        </div>
+        <div class="two">
+          <label>Was the facility in your network?
+            <select name="facilityNetwork"><option value="in">In network</option><option value="out">Out of network</option><option value="unknown">Not sure</option></select>
+          </label>
+          <label>Was the doctor who billed you?
+            <select name="providerNetwork"><option value="out">Out of network</option><option value="in">In network</option><option value="unknown">Not sure</option></select>
+          </label>
+        </div>
+        <label class="check"><input type="checkbox" name="signedWaiver"> I signed a form agreeing to out-of-network charges before care</label>
+        <label class="check"><input type="checkbox" name="accessCharge"> I was charged for an interpreter or other disability help</label>
+        <div class="two">
+          <label>Amount billed to you ($)<input name="billed" type="number" min="0" step="1" placeholder="2340"></label>
+          <label>Your usual in-network cost-sharing ($)<input name="expected" type="number" min="0" step="1" placeholder="500"></label>
+        </div>
+        <div class="two">
+          <label>Good Faith Estimate you were given ($)<input name="gfe" type="number" min="0" step="1" placeholder="Uninsured only"></label>
+          <label>Did insurance deny the claim?
+            <select name="denied"><option value="no">No</option><option value="yes">Yes, denied in full or part</option></select>
+          </label>
+        </div>
+        <div class="two">
+          <label>Household income per year ($)<input name="income" type="number" min="0" step="100" placeholder="42000"></label>
+          <label>People in household<input name="household" type="number" min="1" max="12" value="1"></label>
+        </div>
+        <div class="two">
+          <label>Hospital or provider name<input name="provider" placeholder="St. Example Medical Center"></label>
+          <label>Date of service<input name="date" type="date"></label>
+        </div>
+        <button class="btn btn-primary wide" type="submit">Check this bill</button>
+      </form>
+      <div class="results" id="billResults">
+        <div class="empty-state">
+          <p class="eyebrow">Results</p>
+          <h3>Your findings appear here</h3>
+          <p>Fill in what you know. Leave anything you're not sure about as is.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SYMPTOMS ============================ -->
+<section class="page" data-page="symptoms" hidden>
+  <div class="page-head">
+    <div class="wrap narrow center">
+      <p class="eyebrow accent">Symptom Checker</p>
+      <h1>Describe what you're feeling.</h1>
+      <p class="lead">Plain words are fine. We return the most likely conditions, how urgent each one is, and fill in the cost and medication tools for you.</p>
+      <form class="search" id="symptomForm">
+        <textarea id="symptomText" rows="3" placeholder="e.g. sore throat and fever for two days, hurts to swallow, no cough"></textarea>
+        <div class="search-row">
+          <input id="symptomAge" type="number" min="0" max="120" placeholder="Age">
+          <select id="symptomDuration"><option value="">How long?</option><option>Less than a day</option><option>1 to 3 days</option><option>4 to 7 days</option><option>More than a week</option></select>
+          <button class="btn btn-primary" type="submit">Check symptoms</button>
+        </div>
+      </form>
+      <div class="chips center" id="symptomExamples">
+        <button class="chip" type="button">sore throat and fever, hurts to swallow</button>
+        <button class="chip" type="button">burning when I pee, need to go often</button>
+        <button class="chip" type="button">sharp pain lower right belly, nausea</button>
+        <button class="chip" type="button">wheezing and tight chest at night</button>
+        <button class="chip" type="button">red, warm, swollen patch on my leg</button>
+      </div>
+      <p class="fineprint">If you have chest pain, trouble breathing, signs of stroke, or thoughts of harming yourself, call 911 or 988 now.</p>
+    </div>
+  </div>
+  <div class="band cream tight">
+    <div class="wrap" id="symptomResults">
+      <div class="empty-state center"><p class="eyebrow">Results</p><h3>Likely conditions appear here</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ COST ============================ -->
+<section class="page" data-page="cost" hidden>
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow accent">Condition &amp; Cost Explorer</p>
+      <h1>Treat it now, or pay more later.</h1>
+      <p class="lead">What a condition typically costs if it's treated early versus after it gets worse, adjusted for <span class="loc-label">your location</span>.</p>
+    </div>
+  </div>
+  <div class="band cream tight">
+    <div class="wrap">
+      <div class="chips" id="conditionChips" role="tablist"></div>
+      <div class="cost-layout" id="costView"></div>
+      <p class="fineprint">Illustrative estimates for this prototype, built from typical US cash and negotiated price ranges and scaled by a state cost index. Not a quote.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ MEDS ============================ -->
+<section class="page" data-page="meds" hidden>
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow accent">Medication Prices</p>
+      <h1>Generic or brand? See the gap.</h1>
+      <p class="lead">Typical cash prices with a discount card, adjusted for <span class="loc-label">your location</span>. Ask your pharmacist about the generic.</p>
+    </div>
+  </div>
+  <div class="band cream tight">
+    <div class="wrap">
+      <div class="filter-row">
+        <input class="filter-input" id="medSearch" placeholder="Search a medication or condition">
+        <div class="chips" id="medFilters"></div>
+      </div>
+      <div class="med-grid" id="medGrid"></div>
+      <p class="fineprint">Illustrative prices for this prototype; actual prices vary by pharmacy, dose and coupon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ LEGAL ============================ -->
+<section class="page" data-page="legal" hidden>
+  <div class="page-head">
+    <div class="wrap">
+      <p class="eyebrow accent">Rights and letters</p>
+      <h1>The rules, the process, the letter.</h1>
+      <p class="lead">Everything you need to dispute a medical bill, in order. Your letter fills itself in from Bill Check.</p>
+    </div>
+  </div>
+  <div class="band cream tight">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow accent">Dispute procedure</p><h2>Five steps, in order</h2></div>
+      <ol class="steps-list">
+        <li><span class="numeral">01</span><div><h3>Don't pay yet, and ask for an itemized bill</h3><p>Ask the billing office for an itemized bill with billing codes, and ask them to pause collections while you review it. Check for duplicate charges and services you didn't get.</p></div></li>
+        <li><span class="numeral">02</span><div><h3>Compare it to your Explanation of Benefits</h3><p>Your insurer's EOB shows what you actually owe. If the bill asks for more than the EOB's "patient responsibility", that gap is what you dispute.</p></div></li>
+        <li><span class="numeral">03</span><div><h3>Send a written dispute</h3><p>Send the letter below to the billing office and keep a copy. Name the rule that applies: No Surprises Act, 501(r) financial assistance, or your Good Faith Estimate.</p></div></li>
+        <li><span class="numeral">04</span><div><h3>Appeal or apply</h3><p>Denied claim: file an internal appeal with your plan within 180 days of the denial notice. Nonprofit hospital: apply for financial assistance; they must accept applications for at least 240 days after the first post-discharge bill.</p></div></li>
+        <li><span class="numeral">05</span><div><h3>Escalate</h3><p>Surprise billing: file a complaint with the No Surprises Help Desk at 1-800-985-3059. Uninsured and billed $400+ over your estimate: start patient-provider dispute resolution within 120 days of the bill. Denied appeal: request external review.</p></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow accent">Precedent &amp; authority</p><h2>What the law and courts have said</h2></div>
+      <div class="chips" id="caseFilters"></div>
+      <div class="case-grid" id="caseGrid"></div>
+    </div>
+  </div>
+
+  <div class="band cream">
+    <div class="wrap letter-grid">
+      <div>
+        <p class="eyebrow accent">Dispute letter</p>
+        <h2>Your letter, written for you</h2>
+        <p class="sub">Built from your Bill Check answers. Add your name, edit anything, then copy or download it.</p>
+        <form class="panel form" id="letterForm">
+          <div class="two">
+            <label>Your full name<input name="name" placeholder="Jordan Patel"></label>
+            <label>Account or claim number<input name="account" placeholder="ACCT-001234"></label>
+          </div>
+          <label>Your mailing address<input name="address" placeholder="12 Main St, Springfield, IL 62701"></label>
+          <label>Billing office or provider<input name="provider" placeholder="St. Example Medical Center"></label>
+          <label>Reason for dispute
+            <select name="reason">
+              <option value="nsa">Surprise out-of-network bill (No Surprises Act)</option>
+              <option value="charity">Request for financial assistance (501(r))</option>
+              <option value="gfe">Bill exceeds my Good Faith Estimate</option>
+              <option value="itemized">Request itemized bill and billing review</option>
+              <option value="appeal">Appeal of denied claim (to my insurer)</option>
+              <option value="accommodation">Request disability accommodations for a visit</option>
+            </select>
+          </label>
+          <div class="two">
+            <label>Amount billed ($)<input name="billed" type="number" min="0"></label>
+            <label>Date of service<input name="date" type="date"></label>
+          </div>
+        </form>
+      </div>
+      <div class="letter-wrap">
+        <div class="letter-toolbar">
+          <span class="eyebrow">Preview</span>
+          <div class="btn-row">
+            <button class="btn btn-secondary sm" id="copyLetter" type="button">Copy</button>
+            <button class="btn btn-primary sm" id="downloadLetter" type="button">Download .txt</button>
+          </div>
+        </div>
+        <textarea class="letter" id="letterOutput" spellcheck="false" aria-label="Dispute letter"></textarea>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="wrap footer-row">
+    <a href="#home" class="brand" aria-label="SMS Shield home"><img class="brand-logo footer-logo" src="assets/logo.png" alt="" width="482" height="287"></a>
+    <p class="footer-note">Not medical or legal advice. Emergency: <a href="tel:911">911</a> · Crisis: <a href="tel:988">988</a></p>
+    <p class="copyright">© 2026 SMS Shield</p>
+  </div>
+</footer>
+
+<!-- Help dock: on every page -->
+<div class="dock" role="region" aria-label="Help">
+  <button class="dock-btn" id="readAloudBtn" type="button" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z M16 9a4 4 0 0 1 0 6"/></svg><span>Read a summary aloud</span>
+  </button>
+  <button class="dock-btn primary" id="chatFab" type="button" aria-expanded="false" aria-controls="chat">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z"/></svg><span>Help</span>
+  </button>
+</div>
+<div class="chat" id="chat" hidden role="dialog" aria-label="SMS Shield assistant" aria-describedby="chatNotice">
+  <div class="chat-head">
+    <div><strong>SMS Shield help</strong><span id="chatMode">Checking connection…</span></div>
+    <button class="chat-x" id="chatClose" aria-label="Close">&times;</button>
+  </div>
+  <p class="chat-notice" id="chatNotice">General information only. I'm not a doctor or lawyer. In an emergency, call 911.</p>
+  <div class="chat-log" id="chatLog" role="log" aria-live="polite" aria-label="Conversation">
+    <div class="msg bot">Hi. I can help with health questions and your rights, like interpreters, accessible formats, service animals, and medical bills. Type or press the microphone.</div>
+  </div>
+  <div class="chips chat-chips" id="chatChips">
+    <button class="chip" type="button">Can I get a free ASL interpreter?</button>
+    <button class="chip" type="button">Can my service dog come in?</button>
+    <button class="chip" type="button">Do I qualify for charity care?</button>
+    <button class="chip" type="button">How do I appeal a denied claim?</button>
+  </div>
+  <form class="chat-input" id="chatForm">
+    <button class="mic" id="micBtn" type="button" aria-label="Speak your question"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    <input id="chatInput" placeholder="Ask a question" autocomplete="off" aria-label="Your question">
+    <button class="send" type="submit" aria-label="Send"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </form>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Accessibility layer: check-in gate, mode chooser, live regions, captions -->
+<div class="a11y-overlay intro-gate" id="a11yGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle" aria-describedby="gateDesc" hidden>
+  <div class="intro-stage" id="introStage" aria-hidden="true">
+    <div class="intro-glow"></div>
+    <div class="intro-lockup">
+      <img class="intro-gavel" src="assets/gavel.png" alt="" width="356" height="687">
+      <span class="intro-ring"></span>
+      <img class="intro-logo" src="assets/logo.png" alt="" width="482" height="287">
+      <span class="sparkle is1"></span><span class="sparkle is2"></span>
+    </div>
+    <p class="intro-tag">Health help <em>and</em> your rights</p>
+    <p class="intro-skip"><span>Scroll to continue</span><i aria-hidden="true"></i></p>
+  </div>
+  <div class="gate-inner">
+    <img class="gate-logo-sm" src="assets/logo.png" alt="SMS Shield" width="482" height="287">
+    <h1 id="gateTitle" tabindex="-1">Before you come in, how can we help?</h1>
+    <p id="gateDesc">Each choice lights up and is read out loud. Press the space bar or tap anywhere when yours is lit. Or press its number.</p>
+    <p class="gate-now" id="gateNow" aria-hidden="true"></p>
+    <div class="gate-options" role="group" aria-label="Choose how we can help">
+      <button class="gate-opt primary wide" type="button" data-choice="full"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg><kbd>5</kbd><b>Full access</b><span>Blind, deaf or can't speak? We read everything out loud and show it as captions. You never need to speak.</span></button>
+      <button class="gate-opt" type="button" data-choice="voice"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/><path d="M4 20 20 4"/></svg><kbd>1</kbd><b>I'm blind or have low vision</b><span>Everything is read out loud. Use your keyboard or your voice.</span></button>
+      <button class="gate-opt" type="button" data-choice="text"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9a5 5 0 0 1 10 0c0 3-3 4-3 7a3 3 0 0 1-5.5 1.6"/><path d="M10 10a2 2 0 0 1 4 0"/><path d="M3 21 21 3"/></svg><kbd>2</kbd><b>I'm deaf or hard of hearing</b><span>Everything is shown as text and captions. Nothing needs sound.</span></button>
+      <button class="gate-opt" type="button" data-choice="typing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9h8M8 12h5"/></svg><kbd>3</kbd><b>I can't speak</b><span>Everything works by typing or tapping. You never need to speak.</span></button>
+      <button class="gate-opt" type="button" data-choice="handsfree"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="6"/><circle cx="10" cy="9" r=".6"/><circle cx="14" cy="9" r=".6"/><path d="M10 12.5c1.2 1 2.8 1 4 0M5 20l2-2M19 20l-2-2"/></svg><kbd>4</kbd><b>I have limited movement</b><span>Move and choose with your face and camera, or big buttons.</span></button>
+    </div>
+    <button class="gate-continue" type="button" data-choice="continue"><kbd>Enter</kbd>Continue without changes</button>
+  </div>
+</div>
+
+<div class="a11y-overlay" id="a11yModes" role="dialog" aria-modal="true" aria-labelledby="modesTitle" aria-describedby="modesHint" hidden>
+  <div class="a11y-card modes-card">
+    <h2 id="modesTitle" tabindex="-1">How would you like to use SMS Shield?</h2>
+    <p id="modesHint">Press a number from 1 to 6, or say the name of a mode. Press Escape to close.</p>
+    <div class="mode-list" role="group" aria-label="Modes">
+      <button class="mode-option" type="button" data-mode="voice"><span class="mode-key" aria-hidden="true">1</span><span><b>Voice mode</b><span>For blind or low vision users. The site talks you through every step, and you can answer by voice or keyboard.</span></span></button>
+      <button class="mode-option" type="button" data-mode="text"><span class="mode-key" aria-hidden="true">2</span><span><b>Text mode</b><span>For deaf or hard of hearing users. Everything is shown as text and captions. Nothing depends on sound.</span></span></button>
+      <button class="mode-option" type="button" data-mode="handsfree"><span class="mode-key" aria-hidden="true">3</span><span><b>Hands-free mode</b><span>For limited hand movement. Control the site with blinks, head turns and your mouth using your camera.</span></span></button>
+      <button class="mode-option" type="button" data-mode="full"><span class="mode-key" aria-hidden="true">4</span><span><b>Full access</b><span>Reads everything out loud and shows it as captions. You never need to speak or see the screen.</span></span></button>
+      <button class="mode-option" type="button" data-mode="typing"><span class="mode-key" aria-hidden="true">5</span><span><b>Typing mode</b><span>For people who can't speak. Everything works by typing or tapping, and nothing asks you to talk.</span></span></button>
+      <button class="mode-option" type="button" data-mode="standard"><span class="mode-key" aria-hidden="true">6</span><span><b>Standard mode</b><span>Use the site with a mouse, touch screen or keyboard.</span></span></button>
+    </div>
+    <div class="mode-prefs" role="group" aria-label="Display options">
+      <label class="check"><input type="checkbox" id="prefContrast"> High contrast</label>
+      <label class="check"><input type="checkbox" id="prefLarge"> Larger text</label>
+    </div>
+  </div>
+</div>
+
+<div class="captions" id="captions" aria-hidden="true" hidden>
+  <p class="captions-label">Captions</p>
+  <div class="captions-log" id="captionsLog"></div>
+</div>
+<div class="sr-only" id="srPolite" aria-live="polite" aria-atomic="true"></div>
+<div class="sr-only" id="srAssertive" aria-live="assertive" aria-atomic="true"></div>
+
+<script src="data.js"></script>
+<script src="legal.js"></script>
+<script src="a11y.js"></script>
+<script src="app.js"></script>
+<script src="handsfree.js"></script>
+<script src="dictate.js"></script>
+<script src="walkthrough.js"></script>
+<script src="home.js"></script>
+<script src="lens.js"></script>
+<script src="motion.js"></script>
+</body>
+</html>
